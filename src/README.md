@@ -9,7 +9,7 @@ Variáveis servem para definir valores padrões para seus projetos e facilitar a
 
 **less**
 
-```css
+```less
 @black: #000;
 @red: #F00;
 
@@ -78,7 +78,9 @@ Sabe quando você tem aquele elemento principal com **960px** mas que precisa de
 
 E quando alguém mudar o tamanho do padding, você torce pra lembrarem de refazer a conta da coluna – que, aliás, seria (960px – 35px * 2 – 20px) / 2 = 435px. No LESS, você pode fazer a conta direito na propriedade e o resultado final é calculado:
 
-```css
+**less**
+
+```less
 .coluna {
    width: (960px - 35px * 2 - 20px) / 2;
 }
@@ -88,7 +90,7 @@ Melhor ainda, junte com as variáveis que vimos antes e você nem copia e cola v
 
 **less**
 
-```css
+```less
 @total: 960px;
 @respiro: 35px;
 @espaco: 20px;
