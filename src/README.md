@@ -83,20 +83,20 @@ Parece uma classe CSS mas ele recebe uma variável como parâmetro (que pode ter
 **less**
 
 ```less
-float-l() {
+.float-l() {
    float: left;
 }
 
-float-r() {
+.float-r() {
    float: right;
 }
 
 .container {
-   .floar-l;
+   .float-l;
 }
 
 .coluna {
-   .floar-r;
+   .float-r;
 }
 ```
 
