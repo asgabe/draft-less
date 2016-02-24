@@ -34,29 +34,81 @@ Variáveis servem para definir valores padrões para seus projetos e facilitar a
 
 ## Mixins
 
-Com o LESS nos podemos criar funções, que é chamada de **mixins**. Mixins ou Funções podem ou não receberem argumentos **(paramentros)**. Mixins são bem úteis quando você tem que repetir a mesma coisa várias vezes, como nas propriedades CSS3 que precisam de **prefixos**.
+Com o LESS nos podemos criar funções, que é chamada de **mixins**. Mixins ou Funções podem ou não receberem argumentos **(parâmetros)**. Mixins são bem úteis quando você tem que repetir a mesma coisa várias vezes, como nas propriedades CSS3 que precisam de **prefixos**.
+
++ Funções com parâmetros
 
 **less**
 
 ```less
-.box-sizing(@sizing) {
-   -ms-box-sizing: @sizing;
-   -moz-box-sizing: @sizing;
-   -webkit-box-sizing: @sizing;
-   box-sizing: @sizing;
-}
-
-body {
-   .box-sizing(border-box);
+.radius(@raio: 5px) {
+  -webkit-border-radius: @raio;
+     -moz-border-radius: @raio;
+          border-radius: @raio;
 }
 ```
 
+Parece uma classe CSS mas ele recebe uma variável como parâmetro (que pode ter um valor default também).
+
+```less
+.container {
+   .radius;
+}
+
+.coluna {
+   width: 345px;
+   .radius(10px);
+}
+```
+
+**css**
+
 ```css
-body {
-   -ms-box-sizing: border-box;
-   -moz-box-sizing: border-box;
-   -webkit-box-sizing: border-box;
-   box-sizing: border-box;
+.container {
+   -webkit-border-radius:5px;
+      -moz-border-radius:5px;
+           border-radius:5px;
+}
+
+.coluna {
+   width: 345px;
+   -webkit-border-radius:10px;
+      -moz-border-radius:10px;
+           border-radius:10px;
+}
+```
+
++ Funções sem parâmetros
+
+**less**
+
+```less
+float-l() {
+   float: left;
+}
+
+float-r() {
+   float: right;
+}
+
+.container {
+   .floar-l;
+}
+
+.coluna {
+   .floar-r;
+}
+```
+
+**css**
+
+```css
+.container {
+   float: left;
+}
+
+.coluna {
+   float: right;
 }
 ```
 
