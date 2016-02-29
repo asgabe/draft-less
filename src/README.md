@@ -209,10 +209,9 @@ Parece uma classe CSS mas ele recebe uma variável como parâmetro (que pode ter
   + https://nodejs.org
 
 + Linux
- + **Download**: https://nodejs.org
- + **Package**: curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-                sudo apt-get install -y nodejs
+ + curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+   sudo apt-get install -y nodejs
 
-                curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-                sudo apt-get install -y nodejs
+ + curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+   sudo apt-get install -y nodejs
 
