@@ -1,6 +1,6 @@
-# LESS
+# {less}
 
-O LESS uma linguagem dinâminca de esitlo que é baseada em CSS (mesma ideia, sintaxe familiar) que gera CSS no final. **LESS** é um pré-processador, porque, no fim, o browser só entende CSS mesmo. Você escreve um arquivo .less mas usa no final um .css compilado com o comando **lessc**.
+O LESS uma linguagem dinâminca de esitlo que é baseada em CSS (mesma ideia, sintaxe familiar) que gera CSS no final. **LESS** é um pré-processador, porque, no fim, o browser só entende CSS mesmo. Você escreve um arquivo .less mas usa no final um .css compilado com o comando **lessc**.lessc
 
 
 ## Variáveis
@@ -10,105 +10,70 @@ Variáveis servem para definir valores padrões para seus projetos e facilitar a
 **less**
 
 ```less
-@black: #000;
-@red: #F00;
+@orange: #E85A05;
+@green: #008000;
 
-.n1v {
-   color: @black;
+label {
+   color: @orange;
 }
-.nv2 {
-   color: @red;
+
+span {
+   color: @green;
 }
 ```
 
 **css**
 
 ```css
-.n1v {
-   color: #000;
+label {
+   color: #E85A05;
 }
-.nv2 {
-   color: #F00;
+
+span {
+   color: #008000;
 }
 ```
-
-## Mixins
-
-Com o LESS nos podemos criar funções, que é chamada de **mixins**. Mixins ou Funções podem ou não receberem argumentos **(parâmetros)**. Mixins são bem úteis quando você tem que repetir a mesma coisa várias vezes, como nas propriedades CSS3 que precisam de **prefixos**.
-
-+ Funções com parâmetros
+## Hierarquia em prol da flexibilidade
 
 **less**
 
 ```less
-.radius(@raio: 5px) {
-  -webkit-border-radius: @raio;
-     -moz-border-radius: @raio;
-          border-radius: @raio;
-}
-```
-
-Parece uma classe CSS mas ele recebe uma variável como parâmetro (que pode ter um valor default também).
-
-```less
-.container {
-   .radius;
-}
-
-.coluna {
-   width: 345px;
-   .radius(10px);
-}
-```
-
-**css**
-
-```css
-.container {
-   -webkit-border-radius:5px;
-      -moz-border-radius:5px;
-           border-radius:5px;
-}
-
-.coluna {
-   width: 345px;
-   -webkit-border-radius:10px;
-      -moz-border-radius:10px;
-           border-radius:10px;
-}
-```
-
-+ Funções sem parâmetros
-
-**less**
-
-```less
-.float-l() {
-   float: left;
-}
-
-.float-r() {
-   float: right;
-}
-
-.container {
-   .float-l;
-}
-
-.coluna {
-   .float-r;
+.ul-first {
+   margin: 0 auto;
+   li {
+      list-style: none; display: inline-block; background: #000;
+      .drop-down {
+         display: none;
+      }
+      &:hover {
+         background: #FFF;
+         .drop-down {
+            display: block;
+         }
+      }
+   }
 }
 ```
 
 **css**
 
 ```css
-.container {
-   float: left;
+.ul-first {
+  margin: 0 auto;
 }
-
-.coluna {
-   float: right;
+.ul-first li {
+  list-style: none;
+  display: inline-block;
+  background: #000;
+}
+.ul-first li .drop-down {
+  display: none;
+}
+.ul-first li:hover {
+  background: #FFF;
+}
+.ul-first li:hover .drop-down {
+  display: block;
 }
 ```
 
@@ -155,3 +120,99 @@ Melhor ainda, junte com as variáveis que vimos antes e você nem copia e cola v
    width: (@total - @respiro * 2 - @espaco) / 2;
 }
 ```
+
+## Mixins
+
+Com o LESS nos podemos criar funções, que é chamada de **mixins**. Mixins ou Funções podem ou não receberem argumentos **(parâmetros)**. Mixins são bem úteis quando você tem que repetir a mesma coisa várias vezes, como nas propriedades CSS3 que precisam de **prefixos**.
+
+Parece uma classe CSS mas ele recebe uma variável como parâmetro (que pode ter um valor default também).
+
++ Mixins com parâmetros
+
+**less**
+
+```less
+.radius(@raio: 5px) {
+  -webkit-border-radius: @raio;
+     -moz-border-radius: @raio;
+          border-radius: @raio;
+}
+```
+
+```less
+.container {
+   .radius;
+}
+
+.coluna {
+   width: 345px;
+   .radius(10px);
+}
+```
+
+**css**
+
+```css
+.container {
+   -webkit-border-radius:5px;
+      -moz-border-radius:5px;
+           border-radius:5px;
+}
+
+.coluna {
+   width: 345px;
+   -webkit-border-radius:10px;
+      -moz-border-radius:10px;
+           border-radius:10px;
+}
+```
+
++ Mixins sem parâmetros
+
+**less**
+
+```less
+.float-l() {
+   float: left;
+}
+
+.float-r() {
+   float: right;
+}
+
+.container {
+   .float-l;
+}
+
+.coluna {
+   .float-r;
+}
+```
+
+**css**
+
+```css
+.container {
+   float: left;
+}
+
+.coluna {
+   float: right;
+}
+```
+
+## Using Less
+
+**Necessário Node.js pré instalado**
+
+ + Windowns
+  + https://nodejs.org
+
++ Linux
+ + **Download**: https://nodejs.org
+ + **Package**: curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+                sudo apt-get install -y nodejs
+
+                curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+                sudo apt-get install -y nodejs
+
