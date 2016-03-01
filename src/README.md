@@ -123,7 +123,7 @@ Melhor ainda, junte com as variáveis que vimos antes e você nem copia e cola v
 
 ## Mixins
 
-Com o LESS nos podemos criar funções, que é chamada de **mixins**. Mixins ou Funções podem ou não receberem argumentos **(parâmetros)**. Mixins são bem úteis quando você tem que repetir a mesma coisa várias vezes, como nas propriedades CSS3 que precisam de **prefixos**.
+Com o LESS nos podemos criar **mixins**. Mixins podem ou não receber argumentos **(parâmetros)**,eles são bem úteis quando você tem que repetir a mesma coisa várias vezes, como nas propriedades CSS3 que precisam de **prefixos**.
 
 Parece uma classe CSS mas ele recebe uma variável como parâmetro (que pode ter um valor default também).
 
@@ -211,9 +211,9 @@ Parece uma classe CSS mas ele recebe uma variável como parâmetro (que pode ter
 + Linux
 
 ```
- + curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
    sudo apt-get install -y nodejs
 
- + curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+   curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
    sudo apt-get install -y nodejs
 ```
